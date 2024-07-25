@@ -11,11 +11,22 @@ bool isSorted(int a[] , int n){
     }
     return false;
 }
+bool isSorted2(int a[], int n,int i){
+    if(i==n-1){
+        return true ;
+    }
+    if (a[i]<a[i+1] and isSorted2(a,n,i+1)) {
+        return true ;
+    }
+    return false ;
+}
 int main(){
     int a[] = {1,2,3,4,5,6};
     int n = sizeof(a)/sizeof(int);
 
     cout << (isSorted(a,n) == 1)?"is sorted":"not sorted";
+    cout << endl;
+    cout << (isSorted2(a,n,0) == 1)?"is sorted":"not sorted";
     
 }
 
